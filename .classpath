@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jdk1.8.0_65"/>
 	<classpathentry kind="lib" path="lib/assertj-core-1.5.0.jar"/>
 	<classpathentry kind="lib" path="lib/commons-codec-1.9.jar"/>
 	<classpathentry kind="lib" path="lib/commons-collections-3.2.2.jar"/>
@@ -22,8 +22,9 @@
 	<classpathentry kind="lib" path="lib/log4j-1.2.17.jar"/>
 	<classpathentry kind="lib" path="lib/slf4j-api-1.7.6.jar"/>
 	<classpathentry kind="lib" path="lib/slf4j-log4j12-1.7.6.jar"/>
-	<classpathentry kind="lib" path="lib/webmagic-core-0.7.2.jar"/>
+	<classpathentry kind="lib" path="lib/webmagic-core-0.7.2.jar" sourcepath="/webmagic-core"/>
 	<classpathentry kind="lib" path="lib/webmagic-extension-0.7.2.jar"/>
 	<classpathentry kind="lib" path="lib/xsoup-0.3.1.jar"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/elasticsearch_5.1.2_test"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
