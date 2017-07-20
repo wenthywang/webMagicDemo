@@ -25,6 +25,10 @@
 	<classpathentry kind="lib" path="lib/webmagic-core-0.7.2.jar" sourcepath="/webmagic-core"/>
 	<classpathentry kind="lib" path="lib/webmagic-extension-0.7.2.jar"/>
 	<classpathentry kind="lib" path="lib/xsoup-0.3.1.jar"/>
+	<classpathentry kind="lib" path="lib/json-20160810.jar"/>
+	<classpathentry kind="lib" path="lib/ocr_sdk-1.3.6.jar"/>
+	<classpathentry kind="lib" path="lib/commons-beanutils-1.8.3.jar"/>
+	<classpathentry kind="lib" path="lib/spring-core-3.2.3.RELEASE.jar"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/elasticsearch_5.1.2_test"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
