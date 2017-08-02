@@ -256,7 +256,6 @@ public class FoundationProcessor implements PageProcessor {
         	.thread(10)
             .run();
         System.out.println("共"+count+"个基金");
-//    	System.out.println(TimeStamp2Date("1432051200000"));
     }
     
     //Convert Unix timestamp to normal date style  
