@@ -3,23 +3,13 @@ package webMagicTest;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.commons.lang.math.NumberUtils;
-import org.jsoup.Jsoup;
-import org.jsoup.nodes.Document;
-import org.jsoup.nodes.Element;
-import org.jsoup.select.Elements;
-
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 
 import us.codecraft.webmagic.Page;
 import us.codecraft.webmagic.Site;
 import us.codecraft.webmagic.Spider;
-import us.codecraft.webmagic.downloader.HttpClientDownloader;
 import us.codecraft.webmagic.processor.PageProcessor;
-import us.codecraft.webmagic.proxy.Proxy;
-import us.codecraft.webmagic.proxy.SimpleProxyProvider;
-import us.codecraft.webmagic.utils.ProxyUtils;
 
 /**
  * <pre>
@@ -104,30 +94,30 @@ public class ZhihuCustomerProcessor implements PageProcessor {
 
     public static void main(String[] args) throws Exception {
     	
-    	HttpClientDownloader httpClientDownloader = new HttpClientDownloader();
-    	HttpClientDownloader httpClientDownloader2 = new HttpClientDownloader();
-    	String html=httpClientDownloader.download("http://www.66ip.cn/areaindex_19/1.html").get();
-    	Document doc=Jsoup.parse(html);
-    	Elements es=doc.getElementsByTag("tbody").get(2).getElementsByTag("tr");
-    	List<Proxy>proxyList=new ArrayList<Proxy>();
-    	 for (Element element : es) {
-    	String ip=	 element.child(0).text();
-    	String port=	 element.child(1).text();
-    	if(NumberUtils.isNumber(port)){
-    		System.out.println(ip);
-        	System.out.println(port);
-        	boolean result=ProxyUtils.validateProxy(new Proxy(ip,Integer.parseInt(port)));
-        	if(result){
-        	 Proxy p=new Proxy(ip,Integer.parseInt(port));
-        	 if(!proxyList.contains(p)){
-        	  	 proxyList.add(p);
-        	 }
-        	}
-    	}else{
-    		continue;
-    	}
-    	
-		}
+//    	HttpClientDownloader httpClientDownloader = new HttpClientDownloader();
+//    	HttpClientDownloader httpClientDownloader2 = new HttpClientDownloader();
+//    	String html=httpClientDownloader.download("http://www.66ip.cn/areaindex_19/1.html").get();
+//    	Document doc=Jsoup.parse(html);
+//    	Elements es=doc.getElementsByTag("tbody").get(2).getElementsByTag("tr");
+//    	List<Proxy>proxyList=new ArrayList<Proxy>();
+//    	 for (Element element : es) {
+//    	String ip=	 element.child(0).text();
+//    	String port=	 element.child(1).text();
+//    	if(NumberUtils.isNumber(port)){
+//    		System.out.println(ip);
+//        	System.out.println(port);
+//        	boolean result=ProxyUtils.validateProxy(new Proxy(ip,Integer.parseInt(port)));
+//        	if(result){
+//        	 Proxy p=new Proxy(ip,Integer.parseInt(port));
+//        	 if(!proxyList.contains(p)){
+//        	  	 proxyList.add(p);
+//        	 }
+//        	}
+//    	}else{
+//    		continue;
+//    	}
+//    	
+//		}
 //    	List<String>result2=html.$("#ip_list").css(".odd").all();
 //    	System.out.println(result2);
     	 
@@ -135,14 +125,14 @@ public class ZhihuCustomerProcessor implements PageProcessor {
     	
     	
     	 
-        httpClientDownloader2.setProxyProvider(SimpleProxyProvider.from(proxyList.toArray(new Proxy[proxyList.size()])));
-        httpClientDownloader2.setProxyProvider(SimpleProxyProvider.from(new Proxy("203.93.0.115",80)));
-        String url=FOLLOWEES_URL2.replace("$", "wo-yan-chen-mo");
+//        httpClientDownloader2.setProxyProvider(SimpleProxyProvider.from(proxyList.toArray(new Proxy[proxyList.size()])));
+//        httpClientDownloader2.setProxyProvider(SimpleProxyProvider.from(new Proxy("203.93.0.115",80)));
+        String url=FOLLOWEES_URL2.replace("$", "jinzui");
 //        	//自定义处理器
         	Spider.create(new ZhihuCustomerProcessor()).
 //        	//自定义
-        	addPipeline(new ZhiHuCustomerPipeline()).
-        	setDownloader(httpClientDownloader2).
+//        	addPipeline(new ZhiHuCustomerPipeline()).
+//        	setDownloader(httpClientDownloader2).
             addUrl(url).
             thread(10)
                     .run();
