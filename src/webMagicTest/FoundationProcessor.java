@@ -12,6 +12,7 @@ import javax.script.ScriptException;
 import org.apache.commons.lang.math.NumberUtils;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
+import org.springframework.util.StringUtils;
 
 import jdk.nashorn.api.scripting.ScriptObjectMirror;
 import test.ESAPITest;
@@ -75,7 +76,7 @@ public class FoundationProcessor implements PageProcessor {
         	String pastVal=doc.getElementsByClass("dataNums").get(1).child(0).text();
         	
         	//前一次闭盘后净值涨幅
-        	String pastValPercent=doc.getElementsByClass("dataNums").get(1).child(1).text();
+        	String pastValPercent=doc.getElementsByClass("dataNums").get(1).child(1).text().replace("%", "");
         	
         	//基金名称
         	String title = doc.getElementsByClass("fundDetail-tit").get(0).child(0).text();
@@ -84,7 +85,13 @@ public class FoundationProcessor implements PageProcessor {
         	String type =	page.getHtml().xpath("//*[@id=\"body\"]/div[12]/div/div/div[2]/div[1]/div[2]/table/tbody/tr[1]/td[1]/a/text()").get();
          
         	//成立日
-        	String openDay=	page.getHtml().xpath("//*[@id=\"body\"]/div[12]/div/div/div[2]/div[1]/div[2]/table/tbody/tr[2]/td[1]/text()").get().split("：")[1];
+        	String openDay=	page.getHtml().xpath("//*[@id=\"body\"]/div[12]/div/div/div[2]/div[1]/div[2]/table/tbody/tr[2]/td[1]/text()").get();
+        
+        	if(StringUtils.isEmpty(openDay)){
+        			openDay=page.getHtml().xpath("//*[@id=\"body\"]/div[13]/div/div/div[2]/div[1]/div[2]/table/tbody/tr[2]/td[1]/text()").get();
+        		}
+        	
+        	openDay=openDay.split("：")[1];
             
         	//获取基金代码
              String id=	page.getHtml().xpath("//*[@id=\"body\"]/div[12]/div/div/div[1]/div[1]/div/span[2]/text()").get();
@@ -151,6 +158,10 @@ public class FoundationProcessor implements PageProcessor {
             if(NumberUtils.isNumber(createPercent)){
             	openPercent=Double.valueOf(createPercent);
             }
+            double pastValPercentTemp=0.00;
+            if(NumberUtils.isNumber(pastValPercent)){
+            	pastValPercentTemp=Double.valueOf(pastValPercent);
+            }
         	page.putField("title", title.split("\\(")[0]);
         	page.putField("id", id);
         	page.putField("openDay", openDay);
@@ -161,7 +172,7 @@ public class FoundationProcessor implements PageProcessor {
         	page.putField("oneYearPercent", oneYearPercent);
         	page.putField("threeYearPercent", threeYearPercent);
         	page.putField("openPercent", openPercent);
-        	page.putField("pastValPercent", Double.valueOf(pastValPercent.replace("%", "")));
+        	page.putField("pastValPercent", pastValPercentTemp);
         	page.putField("sumVal", Double.valueOf(sumVal));
         	count++;
         } else if(page.getUrl().regex(FUND_INFO_3).match()){
