@@ -15,7 +15,6 @@ import org.jsoup.nodes.Document;
 import org.springframework.util.StringUtils;
 
 import jdk.nashorn.api.scripting.ScriptObjectMirror;
-import test.ESAPITest;
 import us.codecraft.webmagic.Page;
 import us.codecraft.webmagic.Site;
 import us.codecraft.webmagic.Spider;
@@ -241,16 +240,16 @@ public class FoundationProcessor implements PageProcessor {
     }
 
     public static void main(String[] args) {
-    	ESAPITest.deleteAllIndex();
-    	try {
-			ESAPITest.createFundIndex(FUND_INFO_INDEX);
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+//    	ESAPITest.deleteAllIndex();
+//    	try {
+//			ESAPITest.createFundIndex(FUND_INFO_INDEX);
+//		} catch (Exception e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
         	//自定义处理器
         	Spider.create(new FoundationProcessor())
-        	.addPipeline(new FundationPipeline())
+//        	.addPipeline(new FundationPipeline())
         	//自定义
         	.addUrl(BASE_URL)
         	.thread(10)
