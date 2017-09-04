@@ -43,7 +43,7 @@ public class TrainTicketProcessor implements PageProcessor,Job {
             .setUserAgent(
                     "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_2) AppleWebKit/537.31 (KHTML, like Gecko) Chrome/26.0.1410.65 Safari/537.31");
 
-    private static String  BOOK_DATE="2017-09-30";
+    private static String  BOOK_DATE="2017-10-01";
 //    private static String  fromCity="广州";
 //    private static String  toCity="潮汕";
     
