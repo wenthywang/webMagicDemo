@@ -9,6 +9,7 @@ import com.alibaba.fastjson.JSONObject;
 import us.codecraft.webmagic.Page;
 import us.codecraft.webmagic.Site;
 import us.codecraft.webmagic.Spider;
+import us.codecraft.webmagic.downloader.HttpClientDownloader;
 import us.codecraft.webmagic.processor.PageProcessor;
 
 /**
@@ -94,7 +95,7 @@ public class ZhihuCustomerProcessor implements PageProcessor {
 
     public static void main(String[] args) throws Exception {
     	
-//    	HttpClientDownloader httpClientDownloader = new HttpClientDownloader();
+    	HttpClientDownloader httpClientDownloader = new HttpClientDownloader();
 //    	HttpClientDownloader httpClientDownloader2 = new HttpClientDownloader();
 //    	String html=httpClientDownloader.download("http://www.66ip.cn/areaindex_19/1.html").get();
 //    	Document doc=Jsoup.parse(html);
