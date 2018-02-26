@@ -124,6 +124,8 @@ public class FoundationValueProcessor implements PageProcessor {
 		double min = 0.0;
 		double avg = 0.0;
 		double count = 0.0;
+		long dateTemp=0L;
+		String sellDate="";
 		for (FoundationEntity entity : list) {
 			if (entity.getDwjz() > max) {
 				max = entity.getDwjz();
@@ -140,13 +142,22 @@ public class FoundationValueProcessor implements PageProcessor {
 			
 			String longdate=entity.getDate().replace("-", "");
 			Long date=Long.valueOf(longdate);
-			
+			if(dateTemp==0){
+				dateTemp=date;
+			}else{
+				if(date<dateTemp){
+					dateTemp=	date;
+				}
+			}
 		}
+		//找出 发行日
+		sellDate=String.valueOf(dateTemp).substring(0, 4)+"-"+
+		String.valueOf(dateTemp).substring(4, 6)+"-"+String.valueOf(dateTemp).substring(6);
 		avg = count / list.size();
 		System.out.println("最大净值->" + max);
 		System.out.println("最小净值->" + min);
 		System.out.println("平均净值->" + avg);
-		System.out.println("成立日->" + avg);
+		System.out.println("成立日->" + sellDate);
 
 		// 单位净值 升序 排序
 		Collections.sort(list, new Comparator<FoundationEntity>() {
