@@ -1,7 +1,7 @@
 /**
  * Copyright(c) Guangzhou JiaxinCloud Science & Technology Ltd. 
  */
-package webMagicTest;
+package pipeline;
 
 import java.math.BigDecimal;
 import java.util.HashMap;
@@ -13,6 +13,7 @@ import test.ESAPITest;
 import us.codecraft.webmagic.ResultItems;
 import us.codecraft.webmagic.Task;
 import us.codecraft.webmagic.pipeline.Pipeline;
+import webMagicTest.FoundationProcessor;
 
 /**
  * <pre>

@@ -1,7 +1,7 @@
 /**
  * Copyright(c) Guangzhou JiaxinCloud Science & Technology Ltd. 
  */
-package webMagicTest;
+package pipeline;
 
 import java.util.HashMap;
 import java.util.Map;

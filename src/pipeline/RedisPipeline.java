@@ -1,7 +1,7 @@
 /**
  * Copyright(c) Guangzhou JiaxinCloud Science & Technology Ltd. 
  */
-package webMagicTest;
+package pipeline;
 
 import org.apache.commons.lang3.StringUtils;
 import org.redisson.api.RSet;

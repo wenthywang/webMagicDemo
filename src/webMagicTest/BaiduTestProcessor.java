@@ -11,6 +11,7 @@ import org.jsoup.nodes.Document;
 import org.redisson.api.RMap;
 import org.redisson.api.RedissonClient;
 
+import pipeline.RedisPipeline;
 import us.codecraft.webmagic.Page;
 import us.codecraft.webmagic.Site;
 import us.codecraft.webmagic.Spider;
