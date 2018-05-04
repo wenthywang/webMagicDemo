@@ -16,7 +16,9 @@ import org.quartz.impl.StdSchedulerFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import webMagicTest.TrainTicketProcessor;
+import webMagicTest.IpProxyProcessor;
+import webMagicTest.IpProxyTest;
+import webMagicTest.LagouProcessor;
 
 /**
  * <pre>
@@ -87,7 +89,7 @@ public class QuartzUtil {
     public static void main(String[] args) {
         try {
             //添加第一个任务  每隔10秒执行一次
-            QuartzUtil.addJob("TrainTicketJob", "TrainTicketJobTrigger", TrainTicketProcessor.class, 5);
+            QuartzUtil.addJob("LagouProcessorJob", "LagouProcessorTrigger", LagouProcessor.class, 15*60);
         } catch (SchedulerException e) {
             e.printStackTrace();
         }
