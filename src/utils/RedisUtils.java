@@ -36,9 +36,9 @@ public class RedisUtils {
 	
 	  private static RedisUtils redisUtils;  
 		public static String IP = "redis://111.230.24.31"; // redis 地址
-		public static String PORT = "6379"; // redis 端口
+		public static String PORT = "63790"; // redis 端口
 		public static String PASSWORD = "wwh13660783361"; // redis 密码（可不设置，安全起见还是设置密码）
-		public static int DATABASE = 2;// redis 数据库index 默认是0（有0-15） 默认有16个
+		public static int DATABASE = 10;// redis 数据库index 默认是0（有0-15） 默认有16个
       
 	    private RedisUtils(){}  
 	      
